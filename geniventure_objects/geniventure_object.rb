@@ -1,8 +1,8 @@
-require "../base_object"
-require "../geniventure_objects/egg_basket_object"
-require "../geniventure_objects/meiosis_object"
-require "../geniventure_objects/protein_game_object"
-require "../geniventure_objects/venture_pad_object"
+require '~/development/geniventure-selenium-tests/base_object.rb'
+require "./geniventure_objects/egg_basket_object"
+require "./geniventure_objects/meiosis_object"
+require "./geniventure_objects/protein_game_object"
+require "./geniventure_objects/venture_pad_object"
 
 class GeniventureObject < BaseObject
   include EggBasketObject
@@ -27,19 +27,37 @@ class GeniventureObject < BaseObject
   end
 
   def goto_next
+    puts "in goto_next"
     click_on(NOTIFICATION_NEXT_ARROW)
   end
 
   def close_notification
+    puts "in close_notification"
     click_on(NOTIFICATION_CLOSE_BUTTON)
   end
 
   def continue_to_next_level
+    puts "in continue_to_next_level"
     click_on(CONTINUE_BUTTON)
   end
 
   def try_again
+    puts "in try again"
     click_on(TRY_AGAIN_BUTTON)
+  end
+
+  def get_map
+    puts "In get_map"
+    click_on(MAP)
+  end
+
+  def click_on_challenge_hotspot(challenge)
+    puts "in click on challenge hotspot"
+    case (challenge)
+      when "meiosis"
+        element = SIM_ROOM_CHALLENGE_HOTSPOT
+    end
+    click_on(element)
   end
 
 end

@@ -22,7 +22,6 @@ module PortalLandingObject
   end
 end
 
-end
 
 
 

@@ -142,7 +142,7 @@ class BaseObject
 
   def save_screenshot(dir,page_title)
     puts "in get_screenshot"
-    file_name = page_title.gsub(/[\/\s]/, '_')
+    file_name = page_title.gsub(/[?\/\s]/, '_')
     @@driver.save_screenshot "#{dir}/#{file_name}.png"
   end
 
@@ -174,7 +174,7 @@ class BaseObject
     end
   end
 
-  def wait_for(seconds=25)
+  def wait_for(seconds=45)
     Selenium::WebDriver::Wait.new(:timeout => seconds).until { yield }
   end
 
@@ -203,6 +203,7 @@ class BaseObject
   end
 
   def switch_to_modal()
+    puts "In switch to modal"
     @@driver.switch_to.active_element()
   end
 

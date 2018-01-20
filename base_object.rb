@@ -144,10 +144,10 @@ class BaseObject
     @@driver.title
   end
 
-  def save_screenshot(dir,page_title, browser)
+  def save_screenshot(dir,page_title)
     puts "in get_screenshot"
     file_name = page_title.gsub(/[?\/\s]/, '_')
-    file_name = file_name+"_"+browser.to_s
+    file_name = file_name
     @@driver.save_screenshot "#{dir}/#{file_name}.png"
   end
 

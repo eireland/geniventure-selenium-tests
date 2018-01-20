@@ -12,7 +12,7 @@ class GeniventureObject < BaseObject
 
   MAP = {css: ".map-button"}
   ROOM_LOCATION = {css: '.location-label'}
-  SIM_ROOM_CHALLENGE_HOTSPOT = {id: "enter-challenge-hotspot"}
+  CHALLENGE_HOTSPOT = {id: "enter-challenge-hotspot"}
   NOTIFICATION_NEXT_ARROW = {css: ".next-arrow"}
   NOTIFICATION_CLOSE_BUTTON = {css: '.close-button'}
   LEVEL_TEXT = {css: '.level-indicator-text'}
@@ -53,11 +53,7 @@ class GeniventureObject < BaseObject
 
   def click_on_challenge_hotspot(challenge)
     puts "in click on challenge hotspot"
-    case (challenge)
-      when "meiosis"
-        element = SIM_ROOM_CHALLENGE_HOTSPOT
-    end
-    click_on(element)
+    click_on(CHALLENGE_HOTSPOT)
   end
 
 end

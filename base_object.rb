@@ -6,6 +6,9 @@ class BaseObject
 
   def setup_one(browser)
     @@driver = Selenium::WebDriver.for browser
+    if browser!=:safari
+      manage_window_size
+    end
   rescue Exception => e
     puts e.message
     puts "Could not start driver #{@@driver}"
@@ -76,7 +79,8 @@ class BaseObject
 
   def visit(url='/')
     @@driver.get(url)
-    manage_window_size
+    # if browser
+    # manage_window_size
   end
 
   def verify_page(title)
@@ -140,9 +144,10 @@ class BaseObject
     @@driver.title
   end
 
-  def save_screenshot(dir,page_title)
+  def save_screenshot(dir,page_title, browser)
     puts "in get_screenshot"
     file_name = page_title.gsub(/[?\/\s]/, '_')
+    file_name = file_name+"_"+browser.to_s
     @@driver.save_screenshot "#{dir}/#{file_name}.png"
   end
 

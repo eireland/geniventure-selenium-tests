@@ -7,7 +7,7 @@ browser = :chrome
 expected_screenshot_dir = "#{Dir.home}/Sites/doc_screenshot_results/expected_screenshots/"
 test_screenshot_dir = "./test_screenshots/"+browser.to_s
 GV_BASE_URL = "https://geniventure.concord.org/#"
-gv_pages = ["/home","/1/1/1","/2/1/1","/2/1/2","/2/2/1","/2/2/2","/2/3/1","/2/3/2","/2/3/3","/2/3/4","/3/1/1","/3/1/2","/3/2/1"]
+gv_pages = ["/home","/1/1/1","/2/1/1","/2/1/2","/2/2/1","/2/2/2","/2/3/1","/2/3/2","/2/3/3","/2/3/4","/3/1/1","/3/1/2","/3/2/1","/3/2/2","/3/2/3","/3/2/4","/3/3/1","/3/3/2","/3/3/3","/3/4/1","/3/4/2","/3/4/3","/4/1/1","/4/1/2","/4/1/3","/4/1/4","/4/2/1","/4/2/2","/4/3/1","/4/3/2","/4/3/3"]
 GV_BASE_ID = {id:"gv"}
 CHALLENGES = {id:"enter-challenge-hotspot"}
 `rm -rf #{test_screenshot_dir}`

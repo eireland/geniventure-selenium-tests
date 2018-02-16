@@ -5,7 +5,8 @@ require 'selenium-webdriver'
 student_name = 'dnoble'
 student_password = 'tardis'
 portal_url = 'https://learn.staging.concord.org'
-activity_url = 'https://geniventure.concord.org'
+activity_url = {xpath: '//div[contains(@class,"run_buttons")]/a[contains(@href,"offerings/895.run_resource_html")]'}
+# activity_run_button = {css: "a[href*='offerings/895.run_resource_html']"}
 
 learn = PortalMainObject.new()
 learn.setup_one(:chrome)
@@ -18,6 +19,8 @@ learn.login(student_name,student_password)
 # else
 #   puts "auth not verified"
 # end
-learn.run_activity_solo
-learn.visit(activity_url)
-sleep(5)
+sleep(2)
+learn.run_activity_solo(activity_url)
+sleep(2)
+learn.switch_to_last_tab
+sleep(30)

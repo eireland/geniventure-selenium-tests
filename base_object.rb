@@ -88,6 +88,11 @@ class BaseObject
     expect(@@driver.title).to include(title)
   end
 
+  def get_url
+    puts "In get url"
+    @@driver.current_url
+  end
+
   def get_page_title
     return @@driver.title
   end

@@ -64,7 +64,8 @@ module HomePageObject
     end
   end
 
-  def run_activity_solo
-    click_on(RUN_SOLO_BUTTON)
+  def run_activity_solo(url)
+    puts "In run activity solo"
+    click_on(url)
   end
 end

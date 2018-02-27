@@ -6,7 +6,7 @@ class BaseObject
 
   def setup_one(browser)
     @@driver = Selenium::WebDriver.for browser
-    if browser!=:safari
+    if browser!=:safari #SafariDriver currently has issue with manage.window.size
       manage_window_size
     end
   rescue Exception => e
@@ -78,6 +78,7 @@ class BaseObject
   end
 
   def visit(url='/')
+    puts "in visit"
     @@driver.get(url)
     # if browser
     # manage_window_size

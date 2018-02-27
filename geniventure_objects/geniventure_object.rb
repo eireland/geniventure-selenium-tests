@@ -53,7 +53,13 @@ class GeniventureObject < BaseObject
 
   def click_on_challenge_hotspot(challenge)
     puts "in click on challenge hotspot"
-    click_on(CHALLENGE_HOTSPOT)
+    if (challenge == "breeding barn")
+      click_with_offset(CHALLENGE_HOTSPOT,100,50)
+    else
+      click_on(CHALLENGE_HOTSPOT)
+    end
   end
+
+
 
 end

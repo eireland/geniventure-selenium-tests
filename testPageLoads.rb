@@ -40,9 +40,8 @@ test_screenshot_dir = "./test_screenshots/"+browser.to_s
 activity_url = {xpath: '//div[contains(@class,"run_buttons")]/a[contains(@href,"offerings/895.run_resource_html")]'}
 
 
-gv_pages = ["/home","/1/1/1","1/2/1","1/2/2","1/2/3","1/2/4","/2/1/1","/2/1/2","/2/2/1","/2/2/2","/2/2/3","/2/3/1","/2/3/2","/2/3/3","/2/3/4","/2/3/5","/3/1/1","/3/1/2","/3/1/3","/3/1/4","/3/1/5","/3/1/6","/3/1/7","/3/1/8","/3/2/1","/3/2/2","/3/2/3","/3/2/4","/3/3/1","/3/3/2","/3/3/3","/3/4/1","/3/4/2","/3/4/3","/4/1/1","/4/1/2","/4/1/3","/4/1/4","/4/1/5","/4/1/6","/4/1/7","/4/1/8","/4/2/1","/4/2/2", "/4/2/3","/4/2/4","/4/2/5","/4/3/1","/4/3/2","/4/3/3","/5/1/1","/5/1/2",]
-GV_BASE_ID = {id:"gv"}
-CHALLENGES = {id:"enter-challenge-hotspot"}
+# gv_pages = ["/home","/1/1/1","1/2/1","1/2/2","1/2/3","1/2/4","/2/1/1","/2/1/2","/2/2/1","/2/2/2","/2/2/3","/2/3/1","/2/3/2","/2/3/3","/2/3/4","/2/3/5","/3/1/1","/3/1/2","/3/1/3","/3/1/4","/3/1/5","/3/1/6","/3/1/7","/3/1/8","/3/2/1","/3/2/2","/3/2/3","/3/2/4","/3/3/1","/3/3/2","/3/3/3","/3/4/1","/3/4/2","/3/4/3","/4/1/1","/4/1/2","/4/1/3","/4/1/4","/4/1/5","/4/1/6","/4/1/7","/4/1/8","/4/2/1","/4/2/2", "/4/2/3","/4/2/4","/4/2/5","/4/3/1","/4/3/2","/4/3/3","/5/1/1","/5/1/2","/5/1/3"]
+gv_pages = ["/4/2/1","/4/2/2", "/4/2/3","/4/2/4","/4/2/5","/4/3/1","/4/3/2","/4/3/3","/5/1/1","/5/1/2","/5/1/3"]
 `rm -rf #{test_screenshot_dir}`
 `mkdir -p #{test_screenshot_dir}`
 
@@ -51,7 +50,6 @@ learn=PortalMainObject.new()
 learn.setup_one(browser)
 GV_URL=login(learn)
 GV_BASE_URL = GV_URL.chomp('/home')
-puts "GV-base url is #{GV_BASE_URL}"
 
 gv_pages.each do |page|
   url = GV_BASE_URL + page
@@ -62,6 +60,11 @@ gv_pages.each do |page|
   sleep(5)
   if (page != "/home" )
     gv.click_on_challenge_hotspot("sim room")
+    sleep(20)
+    gv.save_screenshot(test_screenshot_dir,url)
+    sleep(5)
+  elsif (page.include? "4/2/") || (page.include? "4/3/") || (page.include? "5/1/")
+    gv.click_on_challenge_hotspot("breeding barn")
     sleep(20)
     gv.save_screenshot(test_screenshot_dir,url)
     sleep(5)

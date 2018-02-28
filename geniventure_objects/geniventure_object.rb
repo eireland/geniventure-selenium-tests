@@ -21,6 +21,8 @@ class GeniventureObject < BaseObject
   GEM_NUMBER_TEXT = {css: '.gem-number-text'}
   CONTINUE_BUTTON = {css: '.continue-button'}
   TRY_AGAIN_BUTTON = {css: 'try-again-button'}
+  LOADING = {css: '.loading-images'}
+  CHALLENGE_ROOM ={css: '.challenge-container'}
 
   def initialize()
     puts "Initialized"
@@ -58,6 +60,11 @@ class GeniventureObject < BaseObject
     else
       click_on(CHALLENGE_HOTSPOT)
     end
+  end
+
+  def done_loading?
+    wait_for{(CHALLENGE_ROOM).display}
+    return true
   end
 
 

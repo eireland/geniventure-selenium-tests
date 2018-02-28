@@ -142,6 +142,11 @@ class BaseObject
     false
   end
 
+  def wait_until_disappears(locator, timeout: 45)
+    wait = Selenium::WebDriver::Wait.new(timeout: timeout)
+    wait.until { !@@driver.find_element(locator).displayed? }
+  end
+
   def text_of(locator)
     find(locator).text
   end

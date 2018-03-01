@@ -23,6 +23,7 @@ class GeniventureObject < BaseObject
   TRY_AGAIN_BUTTON = {css: 'try-again-button'}
   LOADING = {css: '.loading-images'}
   CHALLENGE_ROOM ={css: '.challenge-container'}
+  NOTIFICATION_FOOTER = {css: '.notification'}
 
   def initialize()
     puts "Initialized"
@@ -56,7 +57,9 @@ class GeniventureObject < BaseObject
   def click_on_challenge_hotspot(challenge)
     puts "in click on challenge hotspot"
     if (challenge == "breeding barn")
-      click_with_offset(CHALLENGE_HOTSPOT,150,75)
+      element = find(NOTIFICATION_FOOTER)
+      puts "challenge hotspot location is #{element.location} challenge hotspot size is #{element.size}"
+      click_with_offset(NOTIFICATION_FOOTER,0,-25)
     else
       click_on(CHALLENGE_HOTSPOT)
     end
